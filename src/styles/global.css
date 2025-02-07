@@ -1,1 +1,67 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--font-base: 'Hind', system-ui, sans-serif;
+	--font-accent: 'Montserrat', system-ui, sans-serif;
+	--color-bg: #0f0b0f;
+	--color-text: #f9e4fd;
+
+	--color-primary: #7a0099;
+	--color-primary-50: hsl(288, 100%, 95%);
+	--color-primary-100: hsl(288, 100%, 90%);
+	--color-primary-200: hsl(288, 100%, 80%);
+	--color-primary-300: hsl(288, 100%, 70%);
+	--color-primary-400: hsl(288, 100%, 60%);
+	--color-primary-500: hsl(288, 100%, 50%);
+	--color-primary-600: hsl(288, 100%, 40%);
+	--color-primary-700: hsl(288, 100%, 30%);
+	--color-primary-800: hsl(288, 100%, 20%);
+	--color-primary-900: hsl(288, 100%, 10%);
+	--color-primary-950: hsl(286, 100%, 5%);
+
+	--color-secondary: #990923;
+	--color-secondary-50: hsl(350, 92%, 95%);
+	--color-secondary-100: hsl(349, 88%, 90%);
+	--color-secondary-200: hsl(349, 88%, 80%);
+	--color-secondary-300: hsl(349, 90%, 70%);
+	--color-secondary-400: hsl(349, 89%, 60%);
+	--color-secondary-500: hsl(349, 89%, 50%);
+	--color-secondary-600: hsl(349, 89%, 40%);
+	--color-secondary-700: hsl(349, 90%, 30%);
+	--color-secondary-800: hsl(349, 88%, 20%);
+	--color-secondary-900: hsl(349, 88%, 10%);
+	--color-secondary-950: hsl(347, 92%, 5%);
+
+	--color-accent: #27e79e;
+	--color-accent-50: hsl(159, 77%, 95%);
+	--color-accent-100: hsl(157, 80%, 90%);
+	--color-accent-200: hsl(157, 80%, 80%);
+	--color-accent-300: hsl(157, 80%, 70%);
+	--color-accent-400: hsl(157, 80%, 60%);
+	--color-accent-500: hsl(157, 80%, 50%);
+	--color-accent-600: hsl(157, 80%, 40%);
+	--color-accent-700: hsl(157, 80%, 30%);
+	--color-accent-800: hsl(157, 80%, 20%);
+	--color-accent-900: hsl(157, 80%, 10%);
+	--color-accent-950: hsl(156, 77%, 5%);
+
+	--color-ring: #7a0099;
+}
+
+body {
+	@apply w-full bg-bg font-base text-text;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply font-accent;
+}
+
+.btn {
+	@apply inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 h-9 px-4 py-2;
+}

@@ -1,22 +1,30 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '@fontsource-variable/montserrat';
+import '@fontsource/hind';
+
+import { Navbar } from '@/components/Navbar.tsx';
+
+import '../styles/global.css';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<ClientRouter />
+		<title>Tobias Napal - Desarrollador Full Stack</title>
 	</head>
 	<body>
+		<header
+			class="fixed top-0 left-0 right-0 z-50 border-b border-primary/20 bg-bg/80 backdrop-blur-sm"
+		>
+			<div class="px-8 py-4">
+				<Navbar />
+			</div>
+		</header>
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
