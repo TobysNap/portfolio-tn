@@ -5,16 +5,20 @@ import { getCollection } from 'astro:content';
 const experiences = await getCollection('experiences');
 ---
 
-<section class="bg-[hsl(350,_30%,_8%)] py-[4rem]">
-	<div class="md:mx-auto md:max-w-4xl">
-		<h2 class="text-7xl font-semibold text-primary-200 uppercase">
+<section
+	class="bg-gradient-to-br from-gray-900 to-gray-900 via-purple-900/20 py-16"
+	id="experience"
+>
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+		<h2 class="text-5xl md:text-7xl font-semibold text-primary-600 uppercase mb-12">
 			Experiencia
 		</h2>
-
-		{
-			experiences.map((experience) => (
-				<ExperienceItem experience={experience} />
-			))
-		}
+		<div class="space-y-8">
+			{
+				experiences.map((experience) => (
+					<ExperienceItem experience={experience} />
+				))
+			}
+		</div>
 	</div>
 </section>
