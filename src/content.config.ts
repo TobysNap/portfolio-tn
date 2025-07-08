@@ -12,7 +12,6 @@ const experiences = defineCollection({
 		),
 		features: z.array(z.string()),
 		tags: z.array(z.string()),
-		url: z.string().optional(),
 		infoUrl: z.string().optional(),
 	}),
 });

@@ -1,10 +1,9 @@
 ---
 import { render } from 'astro:content';
-import { Visit } from '@/components/visit.tsx';
 import { MoreInfo } from '@/components/more-info.tsx';
 
 const { experience } = Astro.props;
-const { company, date, role, url, infoUrl } = experience.data;
+const { company, date, role, infoUrl } = experience.data;
 
 const { Content } = await render(experience);
 ---
@@ -28,7 +27,6 @@ const { Content } = await render(experience);
 			</p>
 
 			<div class="flex gap-4">
-				{url && <Visit url={url} />}
 				{infoUrl && <MoreInfo url={infoUrl} />}
 			</div>
 		</div>
