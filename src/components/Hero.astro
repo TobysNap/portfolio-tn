@@ -1,35 +1,112 @@
 ---
-
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Mail } from 'lucide-react';
 ---
-<section class="md:max-w-4xl mx-auto flex md:h-[90vh] min-h-screen">
-	<header class="grid gap-8 items-center my-auto">
-		<div class="space-y-4">
-			<div class="flex flex-col gap-4">
-				<div class="w-[100px]">
-					<img
-						src="/tobias-napal-picture.webp"
-						alt="Foto de Tobias Napal"
-						class="h-full object-cover"
-					/>
+
+<section class="min-h-screen flex items-center py-16">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+		<div class="grid lg:grid-cols-2 gap-12 items-center">
+			<header class="space-y-8">
+				<div class="space-y-4">
+					<div
+						class="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium"
+					>
+						<div class="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+						Disponible para proyectos
+					</div>
+
+					<div class="space-y-4">
+						<h1
+							class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-primary-400 uppercase"
+						>
+							Tobias Napal
+						</h1>
+						<p class="text-xl md:text-2xl text-text/80 max-w-[600px]">
+							+2 años de experiencia. <span class="text-primary-400"
+								>Desarrollador Full Stack</span
+							>
+							<span class="text-lg inline-block opacity-80"
+								>Especializado en desarrollo de aplicaciones web a medida. Creo
+								soluciones digitales escalables y de alto rendimiento</span
+							>
+						</p>
+					</div>
 				</div>
-				<h1
-					class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-primary-400 uppercase"
-				>
-					Tobias Napal
-				</h1>
+
+				<div class="flex flex-col sm:flex-row gap-4">
+					<Button
+						size="lg"
+						className="bg-accent hover:bg-accent/90 text-accent-950 cursor-pointer font-semibold px-8 py-4 text-lg group"
+						onClick={() =>
+							document
+								.getElementById('contact')
+								?.scrollIntoView({ behavior: 'smooth' })}
+					>
+						Iniciar proyecto
+						<ArrowRight
+							className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
+						/>
+					</Button>
+
+					<Button
+						variant="outline"
+						size="lg"
+						className="border-2 border-primary-500 text-primary-500 cursor-pointer hover:bg-primary-600 hover:text-white font-semibold px-8 py-4 text-lg bg-transparent"
+						onClick={() =>
+							document
+								.getElementById('projects')
+								?.scrollIntoView({ behavior: 'smooth' })}
+					>
+						Ver mi trabajo
+					</Button>
+				</div>
+
+				<div class="flex items-center gap-4 pt-4 border-t border-gray-500">
+					<a
+						href="mailto:napaltobiasbs@gmail.com"
+						class="flex items-center gap-2 text-gray-400 hover:text-primary-400 transition-colors"
+					>
+						<Mail size={16} />
+						<span class="text-sm">napaltobiasbs@gmail.com</span>
+					</a>
+					<span class="text-gray-500">|</span>
+					<span class="text-sm text-gray-400"
+						>San Carlos de Bariloche, Argentina</span
+					>
+				</div>
+			</header>
+
+			<div class="relative lg:order-last">
+				<div class="relative">
+					<div
+						class="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-2xl blur-2xl"
+					>
+					</div>
+
+					<div class="relative bg-accent-800/10 rounded-2xl p-8 shadow-2xl h-[500px]">
+						<img
+							src="/tobias-napal-picture.webp"
+							alt="Tobias Napal - Desarrollador Full Stack"
+							class="w-full h-full object-cover rounded-xl"
+						/>
+
+						{/* Floating elements */}
+						<div
+							class="absolute -top-4 -right-4 bg-accent text-white p-3 rounded-xl shadow-lg"
+						>
+							<div class="text-sm font-semibold">Full Stack</div>
+							<div class="text-xs opacity-90">Developer</div>
+						</div>
+
+						<div
+							class="absolute -bottom-4 -left-4 bg-primary text-white p-3 rounded-xl shadow-lg"
+						>
+							<div class="text-sm font-semibold">+2 años</div>
+							<div class="text-xs opacity-90">Experiencia</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<p class="text-xl md:text-2xl text-text/80 max-w-[600px]">
-				+2 años de experiencia. <span class="text-secondary-400"
-					>Desarrollador Full Stack</span
-				> de San Carlos de Bariloche, Argentina. Especializado en desarrollo web
-				de aplicaciones a medida
-			</p>
 		</div>
-		<div class="flex gap-5">
-			<a
-				href="mailto:napaltobiasbs@gmail.com"
-				class="btn bg-accent text-xl hover:bg-accent/70 text-bg">Contactar</a
-			>
-		</div>
-	</header>
+	</div>
 </section>
