@@ -1,0 +1,33 @@
+---
+const PROJECTS = [
+	{
+		name: 'RomaBelleza',
+		img: '/tobias-napal-picture.webp',
+		tags: ['next.js', 'prisma', 'shadcn/ui'],
+	},
+	{
+		name: 'RomaBelleza',
+		img: '/tobias-napal-picture.webp',
+		tags: ['next.js', 'prisma', 'shadcn/ui'],
+	},
+];
+---
+
+<section class="bg-bg py-[4rem]" id="projects">
+	<div class="md:mx-auto md:max-w-4xl">
+		<h2 class="text-7xl font-semibold text-primary-200 uppercase">Proyectos</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+			{
+				PROJECTS.map((p) => (
+					<div class="bg-primary-900 cursor-pointer hover:animate-ping">
+						<img src={p.img} class="aspect-video object-cover" />
+						<div class="pb-6 ml-3 pt-3">
+							<p class="text-sm text-secondary-200">{p.tags.join(' - ')}</p>
+							<h3 class="text-3xl">{p.name}</h3>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
