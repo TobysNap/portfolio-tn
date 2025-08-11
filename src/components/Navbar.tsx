@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const routes = [
+	{ href: '/', label: 'Inicio' },
 	{ href: '#experience', label: 'Experiencia' },
 	{ href: '#projects', label: 'Proyectos' },
 	{ href: '#about', label: 'Sobre mí' },
