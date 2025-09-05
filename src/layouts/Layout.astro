@@ -6,6 +6,7 @@ import '@fontsource/hind';
 import { Navbar } from '@/components/Navbar.tsx';
 
 import '../styles/global.css';
+import Head from '@/components/Head.astro';
 ---
 
 <!doctype html>
@@ -15,7 +16,7 @@ import '../styles/global.css';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<ClientRouter />
-		<title>Tobias Napal - Desarrollador Full Stack</title>
+    <Head />
 	</head>
 	<body>
 		<header
