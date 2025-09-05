@@ -1,0 +1,263 @@
+---
+import { getCollection } from 'astro:content';
+import { ArrowLeft, Check } from 'lucide-react';
+
+import Layout from '@/layouts/Layout.astro';
+
+import { Button } from '@/components/ui/button';
+import { DemoButton } from '@/components/buttons.tsx';
+import { Badge } from '@/components/ui/badge';
+import { Image } from 'astro:assets';
+import { Gallery } from '@/components/gallery.tsx';
+
+export async function getStaticPaths() {
+	const projects = await getCollection('projects');
+	return projects.map((project) => ({
+		params: { id: project.id },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+const {
+	title,
+	challenges,
+	description,
+	features,
+	goal,
+	imgs,
+	summary,
+	demo,
+	impact,
+	mainImg,
+	role,
+	stack,
+} = project.data;
+---
+
+<Layout>
+	<div class="pt-16 min-h-screen bg-primary-950/30">
+		<section
+			class="py-12 bg-gradient-to-br min-h-screen from-accent-800 via-primary-800 to-primary-950/30 relative overflow-hidden"
+		>
+			<div
+				class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(122,0,153,.5)_0%,transparent_50%)]"
+			>
+			</div>
+			<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+				<Button
+					variant="ghost"
+					className="mb-6 text-primary-100/80 transition-colors ease-in-out duration-300"
+					onClick={() => window.history.back()}
+				>
+					<ArrowLeft className="size-4 mr-2" />
+					Volver a proyectos
+				</Button>
+				<div class="grid lg:grid-cols-2 gap-12 items-center">
+					<div class="space-y-6">
+						<div class="space-y-4">
+							<h1
+								class="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-50 leading-tight"
+							>
+								{title}
+							</h1>
+							<p
+								class="text-lg md:text-xl text-secondary-50/80 leading-relaxed"
+							>
+								{description}
+							</p>
+
+							<div
+								class="bg-secondary-500/20 backdrop-blur-sm rounded-xl p-6 border border-secondary-500/10 shadow-sm"
+							>
+								<p class="text-secondary-50/90 leading-relaxed">{summary}</p>
+							</div>
+
+							{demo && <DemoButton url={demo} />}
+						</div>
+					</div>
+
+					<div class="relative rounded-xl overflow-hidden shadow-xl">
+						<Image
+							src={mainImg}
+							alt={`Captura de pantalla de ${title}`}
+							class="w-full h-[300px] md:h-[400px] object-cover"
+							width={600}
+							height={400}
+						/>
+						<div
+							class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+						>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-12">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-8">
+					<h2 class="text-2xl md:text-3xl font-bold text-secondary-200 mb-3">
+						Tecnologías
+					</h2>
+				</div>
+
+				<div class="flex flex-wrap justify-center gap-3">
+					{
+						stack.map((tech, index) => (
+							<Badge
+								key={index}
+								variant="outline"
+								className="bg-primary/40 text-white border-primary/50 font-medium px-4 py-2 text-sm hover:scale-105 transition-all cursor-default hover:text-secondary-300"
+							>
+								{tech}
+							</Badge>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="py-12 bg-primary-950 backdrop-blur-sm">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="grid lg:grid-cols-2 gap-12">
+					<article>
+						<h2 class="text-2xl md:text-3xl font-bold text-secondary-200 mb-6">
+							Funcionalidades
+						</h2>
+						<div
+							class="bg-primary/30 backdrop-blur-sm rounded-xl p-6 border border-secondary-200/30 shadow-sm"
+						>
+							<ul class="grid gap-3">
+								{
+									features.map((feature) => (
+										<li class="flex items-center gap-3 p-2 rounded-lg hover:bg-primary-100/5 transition-colors">
+											<Check className="size-5 text-accent flex-shrink-0" />
+											<span class="text-gray-200 text-sm">{feature}</span>
+										</li>
+									))
+								}
+							</ul>
+						</div>
+					</article>
+					<article>
+						<h2 class="text-2xl md:text-3xl font-bold text-secondary-200 mb-6">
+							Impacto
+						</h2>
+						<div class="space-y-4">
+							{
+								impact.map((item) => (
+									<div class="p-6 bg-primary/30 backdrop-blur-sm rounded-xl border border-secondary-200/30 shadow-sm shadow-white/10 hover:shadow-md transition-shadow duration-300">
+										<h3 class="text-lg md:text-xl font-semibold text-secondary-100">
+											{item.title}
+										</h3>
+										<p class="text-sm">{item.subtitle}</p>
+									</div>
+								))
+							}
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-12 bg-primary-600/40 backdrop-blur-sm">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-8">
+					<h2 class="text-2xl md:text-3xl font-bold text-secondary-200 mb-3">
+						Detalles
+					</h2>
+				</div>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="backdrop-blur-sm rounded-xl p-6 shadow-md">
+						<h3
+							class="text-lg font-semibold text-white flex items-center gap-2 mb-3"
+						>
+							<div
+								class="w-6 h-6 bg-accent rounded-full flex items-center justify-center"
+							>
+								<span class="text-xs">🎯</span>
+							</div>
+							Objetivo
+						</h3>
+						<p class="text-sm text-gray-200 leading-relaxed">{goal}</p>
+					</div>
+
+					<div class="backdrop-blur-sm rounded-xl p-6 shadow-md">
+						<h3
+							class="text-lg font-semibold text-white flex items-center gap-2 mb-3"
+						>
+							<div
+								class="w-6 h-6 bg-primary rounded-full flex items-center justify-center"
+							>
+								<span class="text-xs">👨‍💻</span>
+							</div>
+							Mi Rol
+						</h3>
+						<p class="text-sm text-gray-200 leading-relaxed">{role}</p>
+					</div>
+
+					<div class="backdrop-blur-sm rounded-xl p-6 shadow-md">
+						<h3
+							class="text-lg font-semibold text-white flex items-center gap-2 mb-3"
+						>
+							<div
+								class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center"
+							>
+								<span class="text-xs">⚡</span>
+							</div>
+							Retos Clave
+						</h3>
+						<div class="space-y-2">
+							{
+								challenges.map((challenge, index) => (
+									<div class="flex items-start gap-2">
+										<Check className="h-3 w-3 text-accent mt-1 flex-shrink-0" />
+										<p class="text-sm text-gray-200 leading-relaxed">
+											{challenge}
+										</p>
+									</div>
+								))
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-12 bg-primary-950/30">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-8">
+					<h2 class="text-2xl md:text-3xl font-bold text-secondary-200 mb-3">
+						Galería
+					</h2>
+				</div>
+				<Gallery imgs={imgs} client:load />
+			</div>
+		</section>
+
+		<section class="py-12 bg-gradient-to-r from-primary/20 to-accent/20">
+			<footer class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+				<div class="space-y-4">
+					<h2 class="text-2xl md:text-3xl font-bold text-secondary-50">
+						¿Te interesa un proyecto similar?
+					</h2>
+					<p class="text-gray-200 max-w-2xl mx-auto">
+						Conversemos sobre cómo puedo ayudarte a desarrollar tu próxima
+						solución digital
+					</p>
+					<Button
+						size="lg"
+						className="bg-accent hover:bg-accent/90 text-gray-900 font-semibold px-6 py-3"
+						onClick={() =>
+							document
+								.getElementById('contact')
+								?.scrollIntoView({ behavior: 'smooth' })}
+					>
+						Iniciar conversación
+					</Button>
+				</div>
+			</footer>
+		</section>
+	</div>
+</Layout>

@@ -1,33 +1,57 @@
 ---
-const PROJECTS = [
-	{
-		name: 'RomaBelleza',
-		img: '/tobias-napal-picture.webp',
-		tags: ['next.js', 'prisma', 'shadcn/ui'],
-	},
-	{
-		name: 'RomaBelleza',
-		img: '/tobias-napal-picture.webp',
-		tags: ['next.js', 'prisma', 'shadcn/ui'],
-	},
-];
+import ProjectCard from '@/components/ProjectCard.astro';
+import { Button } from '@/components/ui/button';
+import { getCollection } from 'astro:content';
+import { ArrowRight } from 'lucide-react';
+
+const projects = await getCollection('projects');
 ---
 
-<section class="bg-bg py-[4rem]" id="projects">
-	<div class="md:mx-auto md:max-w-4xl">
-		<h2 class="text-7xl font-semibold text-primary-200 uppercase">Proyectos</h2>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
-			{
-				PROJECTS.map((p) => (
-					<div class="bg-primary-900 cursor-pointer hover:animate-ping">
-						<img src={p.img} class="aspect-video object-cover" />
-						<div class="pb-6 ml-3 pt-3">
-							<p class="text-sm text-secondary-200">{p.tags.join(' - ')}</p>
-							<h3 class="text-3xl">{p.name}</h3>
-						</div>
-					</div>
-				))
-			}
+<section class="py-16 relative overflow-hidden bg-gradient-to-bl from-gray-900 to-gray-900 via-purple-900/20" id="projects">
+
+	<div class="absolute inset-0 opacity-30">
+		<div
+			class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(122,0,153,1)_0%,transparent_50%)]"
+		>
+		</div>
+		<div
+			class="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_80%,rgba(39,231,158,1)_0%,transparent_50%)]"
+		>
+		</div>
+	</div>
+
+	<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="mb-16">
+			<h2
+				class="text-5xl md:text-7xl font-semibold text-primary uppercase mb-4"
+			>
+				Proyectos
+			</h2>
+			<p class="text-xl text-gray-400 max-w-2xl">
+				Soluciones digitales que impulsan el crecimiento empresarial
+			</p>
+		</div>
+
+		<div class="grid md:grid-cols-2 gap-8 mb-16">
+			{projects.map((project) => <ProjectCard project={project} />)}
+		</div>
+
+		<div class="text-center">
+			<div
+				class="inline-flex w-full max-w-3xl lg:max-w-2xl items-center justify-center flex-col sm:flex-row gap-4 p-8 rounded-2xl bg-primary-900/80 backdrop-blur-sm border border-primary-900/10 shadow-lg"
+			>
+				<Button
+					size="lg"
+					className="bg-accent w-full hover:bg-accent/90 text-gray-900 font-semibold px-8 py-4 text-lg"
+					onClick={() =>
+						document
+							.getElementById('contact')
+							?.scrollIntoView({ behavior: 'smooth' })}
+				>
+					Iniciar tu proyecto
+					<ArrowRight className="ml-2 h-5 w-5" />
+				</Button>
+			</div>
 		</div>
 	</div>
 </section>
