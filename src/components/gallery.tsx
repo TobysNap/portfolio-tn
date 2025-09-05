@@ -6,20 +6,27 @@ import {
 	CarouselPrevious,
 } from '@/components/ui/carousel';
 
-export function Gallery({
-	imgs,
-}: {
-	imgs: { image: string; caption: string; alt: string }[];
-  }) {
+type Image = {
+	image: {
+		src: string;
+		width: number;
+		height: number;
+		format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
+	};
+	caption: string;
+	alt: string;
+};
+
+export function Gallery({ imgs }: { imgs: Image[] }) {
 	return (
 		<Carousel className="w-full">
 			<CarouselContent>
 				{imgs.map((item) => (
-					<CarouselItem key={item.image}>
+					<CarouselItem key={item.image.src}>
 						<div className="relative overflow-hidden rounded-xl bg-primary-800/70 backdrop-blur-sm shadow-lg">
 							<div className="relative h-[350px] md:h-[500px]">
 								<img
-									src={item.image || '/placeholder.svg'}
+									src={item.image.src || '/placeholder.svg'}
 									alt={item.alt}
 									className="w-full h-full object-contain"
 								/>
