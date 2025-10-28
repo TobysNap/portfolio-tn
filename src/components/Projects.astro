@@ -7,49 +7,61 @@ import { ArrowRight } from 'lucide-react';
 const projects = await getCollection('projects');
 ---
 
-<section class="py-16 relative overflow-hidden bg-gradient-to-bl from-gray-900 to-gray-900 via-purple-900/20" id="projects">
-
-	<div class="absolute inset-0 opacity-30">
+<section
+	class="relative py-24 bg-linear-to-bl from-background to-background via-secondary/20"
+	id="projects"
+>
+	<div class="absolute inset-0 overflow-hidden pointer-events-none">
 		<div
-			class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(122,0,153,1)_0%,transparent_50%)]"
+			class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[120px]"
 		>
 		</div>
 		<div
-			class="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_80%,rgba(39,231,158,1)_0%,transparent_50%)]"
+			class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"
 		>
 		</div>
 	</div>
 
-	<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="mb-16">
+	<div class="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+		<div class="mb-20 text-center">
 			<h2
-				class="text-5xl md:text-7xl font-semibold text-primary uppercase mb-4"
+				class="mb-6 text-5xl font-bold tracking-tight uppercase md:text-7xl text-text"
 			>
-				Proyectos
+				Proyectos Destacados
 			</h2>
-			<p class="text-xl text-gray-400 max-w-2xl">
-				Soluciones digitales que impulsan el crecimiento empresarial
+			<p class="max-w-3xl mx-auto text-xl leading-relaxed text-text/70">
+				Soluciones digitales que combinan diseño moderno con tecnología de
+				vanguardia
 			</p>
 		</div>
 
-		<div class="grid md:grid-cols-2 gap-8 mb-16">
+		<div class="grid gap-8 mb-20 md:grid-cols-2 lg:grid-cols-3">
 			{projects.map((project) => <ProjectCard project={project} />)}
 		</div>
 
 		<div class="text-center">
 			<div
-				class="inline-flex w-full max-w-3xl lg:max-w-2xl items-center justify-center flex-col sm:flex-row gap-4 p-8 rounded-2xl bg-primary-900/80 backdrop-blur-sm border border-primary-900/10 shadow-lg"
+				class="inline-block p-10 border-2 rounded-none shadow-2xl glassmorphism backdrop-blur-md border-secondary/30"
 			>
+				<h3
+					class="mb-4 text-3xl font-bold tracking-wide uppercase text-text"
+				>
+					¿Tienes un proyecto en mente?
+				</h3>
+				<p
+					class="max-w-md mx-auto mb-8 text-lg leading-relaxed text-text/70"
+				>
+					Trabajemos juntos para crear algo extraordinario
+				</p>
 				<Button
 					size="lg"
-					className="bg-accent w-full hover:bg-accent/90 text-gray-900 font-semibold px-8 py-4 text-lg"
+					className="bg-primary text-background hover:bg-primary/90 rounded-none font-bold px-10 py-6 text-lg uppercase tracking-wide glow-primary hover:shadow-2xl transition-all duration-300"
 					onClick={() =>
 						document
 							.getElementById('contact')
 							?.scrollIntoView({ behavior: 'smooth' })}
 				>
-					Iniciar tu proyecto
-					<ArrowRight className="ml-2 h-5 w-5" />
+					Iniciar Conversación
 				</Button>
 			</div>
 		</div>

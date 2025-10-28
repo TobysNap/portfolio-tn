@@ -1,42 +1,55 @@
 ---
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Mail } from 'lucide-react';
+import { ArrowRight, Mail, MapPin } from 'lucide-react';
 ---
 
-<section class="min-h-screen flex items-center py-16">
-	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-		<div class="grid lg:grid-cols-2 gap-12 items-center pt-8">
-			<header class="space-y-8">
-				<div class="space-y-4">
+<!-- hero.astro -->
+<section
+	class="flex items-center min-h-screen py-16 pt-24 bg-background"
+>
+	<div class="w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+		<div class="grid items-center gap-16 pt-8 lg:grid-cols-2">
+			<header class="space-y-10">
+				<div class="space-y-6">
 					<div
-						class="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium"
+						class="inline-flex items-center gap-3 px-5 py-3 text-sm font-bold tracking-wide uppercase border-2 rounded-none bg-primary/10 text-primary border-primary/30"
 					>
-						<div class="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+						<div
+							class="size-2.5 bg-primary rounded-full animate-pulse glow-primary"
+						>
+						</div>
 						Disponible para proyectos
 					</div>
 
-					<div class="space-y-4">
+					<div class="space-y-5">
 						<h1
-							class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-primary-400 uppercase"
+							class="text-5xl font-bold leading-none tracking-tighter uppercase md:text-7xl lg:text-8xl text-text"
 						>
 							Tobias Napal
 						</h1>
-						<p class="text-xl md:text-2xl text-text/80 max-w-[600px]">
-							+2 años de experiencia. <span class="text-primary-400"
-								>Desarrollador Full Stack</span
+						<p
+							class="text-2xl md:text-3xl text-text/90 max-w-[650px] leading-tight"
+						>
+							<span
+								class="font-bold tracking-wide uppercase text-primary text-glow-primary"
 							>
-							<span class="text-lg inline-block opacity-80"
-								>Especializado en desarrollo de aplicaciones web a medida. Creo
-								soluciones digitales escalables y de alto rendimiento</span
+								Desarrollador Full Stack
+							</span>
+							<span
+								class="block mt-4 text-lg font-normal leading-relaxed md:text-xl text-text/70"
 							>
+								+2 años de experiencia creando soluciones digitales escalables y
+								de alto rendimiento. Especializado en desarrollo de aplicaciones
+								web a medida.
+							</span>
 						</p>
 					</div>
 				</div>
 
-				<div class="flex flex-col sm:flex-row gap-4">
+				<div class="flex flex-col gap-5 sm:flex-row">
 					<Button
 						size="lg"
-						className="bg-accent hover:bg-accent/90 text-accent-950 cursor-pointer font-semibold px-8 py-4 text-lg group"
+						className="bg-primary border-2 border-primary hover:border-primary/90 hover:bg-primary/90 text-background cursor-pointer font-bold px-10 py-7 text-lg group rounded-none glow-primary hover:shadow-2xl transition-all duration-300 uppercase tracking-wide"
 						onClick={() =>
 							document
 								.getElementById('contact')
@@ -44,14 +57,14 @@ import { ArrowRight, Mail } from 'lucide-react';
 					>
 						Iniciar proyecto
 						<ArrowRight
-							className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
+							className="ml-2 h-6 w-6 group-hover:translate-x-2 transition-transform duration-300"
 						/>
 					</Button>
 
 					<Button
 						variant="outline"
 						size="lg"
-						className="border-2 border-primary-500 text-primary-500 cursor-pointer hover:bg-primary-600 hover:text-white font-semibold px-8 py-4 text-lg bg-transparent"
+						className="border-2 border-secondary text-secondary cursor-pointer hover:bg-secondary/20 hover:text-secondary hover:border-secondary/80 font-bold px-10 py-7 text-lg bg-transparent rounded-none transition-all duration-300 uppercase tracking-wide"
 						onClick={() =>
 							document
 								.getElementById('projects')
@@ -61,47 +74,58 @@ import { ArrowRight, Mail } from 'lucide-react';
 					</Button>
 				</div>
 
-				<div class="flex items-center gap-4 pt-4 border-t border-gray-500">
+				<div
+					class="flex flex-col items-start gap-4 pt-6 border-t-2 sm:flex-row sm:items-center border-secondary/30"
+				>
 					<a
 						href="mailto:napaltobiasbs@gmail.com"
-						class="flex items-center gap-2 text-gray-400 hover:text-primary-400 transition-colors"
+						class="flex items-center gap-2 transition-colors duration-300 text-text/70 hover:text-primary"
 					>
-						<Mail size={16} />
-						<span class="text-sm">napaltobiasbs@gmail.com</span>
+						<Mail size={18} />
+						<span class="text-sm font-medium">napaltobiasbs@gmail.com</span>
 					</a>
-					<span class="text-gray-500">|</span>
-					<span class="text-sm text-gray-400"
-						>San Carlos de Bariloche, Argentina</span
-					>
+					<span class="hidden text-text/30 sm:block">|</span>
+					<div class="flex items-center gap-2 text-text/70">
+						<MapPin size={18} />
+						<span class="text-sm font-medium">
+							San Carlos de Bariloche, Argentina
+						</span>
+					</div>
 				</div>
 			</header>
 
 			<div class="relative lg:order-last">
 				<div class="relative">
 					<div
-						class="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-2xl blur-2xl"
+						class="absolute rounded-none -inset-6 bg-linear-to-r from-primary/30 to-secondary/30 blur-3xl"
 					>
 					</div>
 
-					<div class="relative bg-accent-800/10 rounded-2xl p-8 shadow-2xl h-[500px]">
+					<div
+						class="relative glassmorphism-dark rounded-none p-2 shadow-2xl h-[550px] border-2 border-secondary/30"
+					>
 						<img
 							src="/tobias-napal-picture.webp"
 							alt="Tobias Napal - Desarrollador Full Stack"
-							class="w-full h-full object-cover rounded-xl"
+							class="object-cover w-full h-full rounded-none"
 						/>
 
 						<div
-							class="absolute -top-4 -right-4 bg-accent text-white p-3 rounded-xl shadow-lg"
+							class="absolute p-4 border-2 rounded-none -top-6 -right-6 bg-primary text-background glow-primary border-primary/50"
 						>
-							<div class="text-sm font-semibold">Full Stack</div>
-							<div class="text-xs opacity-90">Developer</div>
+							<div class="text-base font-bold tracking-wide uppercase">
+								Full Stack
+							</div>
+							<div class="text-sm font-medium">Developer</div>
 						</div>
 
 						<div
-							class="absolute -bottom-4 -left-4 bg-primary text-white p-3 rounded-xl shadow-lg"
+							class="absolute p-4 border-2 rounded-none -bottom-6 -left-6 bg-secondary text-text glow-secondary border-secondary/50"
 						>
-							<div class="text-sm font-semibold">+2 años</div>
-							<div class="text-xs opacity-90">Experiencia</div>
+							<div class="text-base font-bold tracking-wide uppercase">
+								+2 Años
+							</div>
+							<div class="text-sm font-medium">Experiencia</div>
 						</div>
 					</div>
 				</div>

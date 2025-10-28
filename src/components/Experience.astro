@@ -6,14 +6,16 @@ const experiences = await getCollection('experiences');
 ---
 
 <section
-	class="bg-gradient-to-br from-gray-900 to-gray-900 via-purple-900/20 py-16"
+	class="py-16 bg-gradient-to-br from-background to-background via-secondary/10"
 	id="experience"
 >
-	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-		<h2 class="text-5xl md:text-7xl font-semibold text-primary-600 uppercase mb-12">
-			Experiencia
+	<div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+		<h2
+			class="mb-16 text-5xl font-bold tracking-tight uppercase md:text-7xl text-text"
+		>
+			Experiencia Profesional
 		</h2>
-		<div class="space-y-8">
+		<div class="space-y-6">
 			{
 				experiences.map((experience) => (
 					<ExperienceItem experience={experience} />
