@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Check, Zap } from 'lucide-react';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { features } = project.data;
+---
+
+<section class="relative py-20 px-4 sm:px-6 lg:px-8">
+	<div class="max-w-7xl mx-auto">
+		<h2
+			class="text-3xl md:text-4xl font-bold text-text uppercase mb-16 text-center"
+		>
+			Características Principales
+		</h2>
+
+		<div
+			class="glassmorphism backdrop-blur-sm border-2 border-primary/20 rounded-none p-6 hover:border-primary/40 transition-colors"
+		>
+			<div class="grid md:grid-cols-2 gap-6">
+				{
+					features.map((feature, index) => (
+						<div class="flex gap-3 items-start group hover:bg-primary/5 p-2 rounded-none transition-colors">
+							<div class="shrink-0 mt-1">
+								<div class="p-2 bg-primary/20 border border-primary/30 rounded-none group-hover:bg-primary/30 transition-colors">
+									{index % 2 === 0 ? (
+										<Check className="size-4 text-primary" />
+									) : (
+										<Zap className="size-4 text-primary" />
+									)}
+								</div>
+							</div>
+							<p class="text-text/80 leading-relaxed text-base group-hover:text-text transition-colors">
+								{feature}
+							</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>

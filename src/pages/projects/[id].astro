@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+
+import Layout from '@/layouts/Layout.astro';
+
+import { Button } from '@/components/ui/button';
+import { Gallery } from '@/components/gallery.tsx';
+import ProjectHero from '@/components/projects/ProjectHero.astro';
+import ProjectDetails from '@/components/projects/ProjectDetails.astro';
+import ProjectCta from '@/components/projects/ProjectCta.astro';
+import ProjectGallery from '@/components/projects/ProjectGallery.astro';
+import ProjectFeatures from '@/components/projects/ProjectFeatures.astro';
+
+export async function getStaticPaths() {
+	const projects = await getCollection('projects');
+	return projects.map((project) => ({
+		params: { id: project.id },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+const {
+	title,
+	challenges,
+	description,
+	features,
+	goal,
+	imgs,
+	summary,
+	demo,
+	impact,
+	mainImg,
+	role,
+	stack,
+} = project.data;
+---
+
+<Layout>
+	<main class="min-h-screen pt-20 bg-background">
+		<ProjectHero data={project} />
+		<ProjectDetails project={project} />
+		<ProjectFeatures project={project} />
+		<ProjectGallery project={project} />
+		<ProjectCta />
+	</main>
+</Layout>

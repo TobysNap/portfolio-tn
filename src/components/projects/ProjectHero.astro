@@ -1,0 +1,121 @@
+---
+import { Button } from '@/components/ui/button';
+import Image from 'astro/components/Image.astro';
+import { ExternalLink, Layers } from 'lucide-react';
+
+const { data } = Astro.props;
+const project = data.data;
+
+const infoCardClass =
+	'p-4 border rounded-none glassmorphism backdrop-blur-sm border-secondary/20 hover:border-secondary/40';
+const infoLabelClass =
+	'block mb-1 text-xs tracking-wider uppercase text-text/60';
+const infoValueClass = 'text-base font-semibold text-primary';
+---
+
+<section
+	class="relative px-4 py-20 overflow-hidden sm:px-6 lg:px-8 bg-background"
+>
+	<div class="absolute inset-0 overflow-hidden pointer-events-none">
+		<div
+			class="absolute top-0 rounded-full right-1/4 w-96 h-96 bg-secondary/20 blur-3xl"
+		>
+		</div>
+		<div
+			class="absolute bottom-0 rounded-full left-1/4 w-96 h-96 bg-primary/10 blur-3xl"
+		>
+		</div>
+	</div>
+
+	<div class="relative max-w-7xl mx-auto">
+		<div class="mb-10">
+			<h1
+				class="text-4xl md:text-5xl lg:text-6xl font-bold text-text uppercase mb-4 text-glow-primary"
+			>
+				{project.title}
+			</h1>
+			<p
+				class="text-xl md:text-2xl  text-primary font-semibold uppercase tracking-wide"
+			>
+				{project.subtitle}
+			</p>
+		</div>
+
+		<div class="grid gap-10 lg:grid-cols-12">
+			<div class="lg:col-span-7 space-y-8">
+				<p class="text-xlg md:text-xl text-text/70 leading-relaxed">
+					{project.summary}
+				</p>
+
+				<div
+					class="glassmorphism backdrop-blur-sm border-2 border-primary/30 rounded-none p-6 hover:border-primary/50 transition-colors"
+				>
+					<h3
+						class="text-text/60 text-xs uppercase tracking-wider font-bold mb-4 flex items-center gap-2"
+					>
+						<span class="w-6 h-0.5 bg-primary"></span>
+						Alcance del Servicio Integral
+					</h3>
+					<p class="text-text/90 leading-relaxed text-base">{project.scope}</p>
+				</div>
+				{
+					project.demo && (
+						<div>
+							<a href={project.demo} target="_blank" rel="noopener noreferrer">
+								<Button
+									size="lg"
+									className="px-8 py-4 text-base font-bold tracking-wide uppercase rounded-none bg-primary text-background hover:bg-primary/90 glow-primary group"
+								>
+									Ver Demo en Vivo
+									<ExternalLink className="ml-2 size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+								</Button>
+							</a>
+						</div>
+					)
+				}
+
+				<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+					<div class={infoCardClass}>
+						<span class={infoLabelClass}>Rol</span>
+						<p class={infoValueClass}>{project.role}</p>
+					</div>
+
+					<div class={infoCardClass}>
+						<span class={infoLabelClass}>Cliente</span>
+						<p class={infoValueClass}>{project.client}</p>
+					</div>
+
+					<div class={infoCardClass}>
+						<span class={infoLabelClass}>Duración</span>
+						<p class={infoValueClass}>{project.duration}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="lg:col-span-5">
+				<div class="sticky top-24">
+					<div
+						class="absolute inset-0 bg-linear-to-br from-secondary to-primary opacity-20 blur-xl"
+					>
+					</div>
+					<div
+						class="relative p-4 transition-colors border rounded-none glassmorphism backdrop-blur-sm border-secondary/30 glow-secondary hover:border-primary/50"
+					>
+						<div
+							class="relative w-full overflow-hidden rounded-none aspect-4/3"
+						>
+							<Image
+								src={project.mainImg || '/placeholder.svg'}
+								alt={project.title}
+								class="object-cover"
+								priority
+								width={800}
+								sizes="(max-width: 1024px) 100vw, 400px"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

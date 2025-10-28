@@ -7,13 +7,13 @@ export function MoreInfo({ url }: { url: string }) {
 		<Button
 			asChild
 			variant="outline"
-			className="transition-opacity duration-200 border border-secondary hover:bg-secondary/80 text-gray-300 hover:text-white opacity-0 group-hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 motion-reduce:opacity-100 bg-transparent"
+			className="text-gray-300 transition-opacity duration-200 bg-transparent border opacity-0 border-secondary hover:bg-secondary/80 hover:text-white group-hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 motion-reduce:opacity-100"
 			style={{
 				textShadow: 'rgba(252, 204, 0, 0.3) 1px 0 5px',
 			}}
 		>
 			<a href={url} target="_blank" rel="noopener noreferrer">
-				<InfoIcon className="size-5 mr-2" />
+				<InfoIcon className="mr-2 size-5" />
 				<span className="sr-only">Más info</span>
 				Detalles
 			</a>
@@ -26,11 +26,11 @@ export function ProjectInfo({ url }: { url: string }) {
 		<Button
 			size="sm"
 			variant="outline"
-			className="bg-primary-900/90 border-primary-900/90 text-white hover:bg-accent hover:text-primary-950 shadow-lg"
+			className="border-2 border-secondary text-secondary hover:bg-secondary/30 hover:border-secondary/80 rounded-none glassmorphism-dark font-bold bg-transparent"
 			asChild
 		>
 			<a href={url} rel="noopener noreferrer">
-				<Info className="size-4 mr-2" />
+				<Info className="mr-2 size-4" />
 				Más info
 			</a>
 		</Button>
@@ -40,13 +40,12 @@ export function ProjectInfo({ url }: { url: string }) {
 export function ProjectDemo({ url }: { url: string }) {
 	return (
 		<Button
-      size="sm"
-      variant="outline"
-			className="bg-primary-900/90 border-primary-900/90 border text-white hover:bg-accent hover:text-primary-950 shadow-lg"
+			size="sm"
+			className="font-bold rounded-none shadow-lg bg-primary text-background hover:bg-primary/90"
 			asChild
 		>
 			<a href={url} target="_blank" rel="noopener noreferrer">
-				<ExternalLink className="size-4 mr-2" />
+				<ExternalLink className="mr-2 size-4" />
 				Demo
 			</a>
 		</Button>
@@ -54,15 +53,16 @@ export function ProjectDemo({ url }: { url: string }) {
 }
 
 export function DemoButton({ url }: { url: string }) {
-  return (
-    <Button
-      size="lg"
-      className="bg-accent hover:bg-accent/90 text-gray-900 font-semibold px-6 py-3"
-      asChild
-    >
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <ExternalLink className="h-4 w-4 mr-2" />
-        Visitar
-      </a>
-    </Button>)
+	return (
+		<Button
+			size="lg"
+			className="px-6 py-3 font-semibold text-gray-900 bg-accent hover:bg-accent/90"
+			asChild
+		>
+			<a href={url} target="_blank" rel="noopener noreferrer">
+				<ExternalLink className="w-4 h-4 mr-2" />
+				Visitar
+			</a>
+		</Button>
+	);
 }

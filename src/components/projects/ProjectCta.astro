@@ -1,0 +1,40 @@
+---
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+---
+
+<section class="relative py-24 px-4 sm:px-6 lg:px-8">
+	<div class="absolute inset-0 overflow-hidden pointer-events-none">
+		<div
+			class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-3xl"
+		>
+		</div>
+	</div>
+
+	<div class="relative max-w-4xl mx-auto">
+		<div
+			class="glassmorphism backdrop-blur-md border-2 border-secondary/30 rounded-none p-12 md:p-16 text-center glow-secondary hover:border-secondary/50 transition-colors"
+		>
+			<h2
+				class="text-4xl md:text-5xl font-bold text-text uppercase mb-6 tracking-tight"
+			>
+				¿Listo para transformar tu negocio?
+			</h2>
+			<p class="text-xl text-text/70 mb-10 leading-relaxed max-w-2xl mx-auto">
+				Creemos juntos una solución digital que impulse el crecimiento de tu
+				emprendimiento
+			</p>
+			<a href="/#contact">
+				<Button
+					size="lg"
+					className="bg-primary text-background hover:bg-primary/90 rounded-none font-bold px-10 py-6 text-lg uppercase tracking-wide glow-primary group"
+				>
+					Iniciar mi proyecto
+					<ArrowRight
+						className="ml-2 size-5 group-hover:translate-x-1 transition-transform"
+					/>
+				</Button>
+			</a>
+		</div>
+	</div>
+</section>

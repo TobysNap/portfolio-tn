@@ -1,8 +1,10 @@
 ---
-title: 'Santy Tec E-commerce'
-subtitle: 'E-commerce moderno con carrito sincronizado y pedidos automáticos por email'
-description: 'Desarrollé un e-commerce desde cero con búsqueda, filtrado, carrito sincronizado y generación automática de pedidos con notificaciones por correo.'
-summary: 'Este e-commerce permite a los clientes explorar un catálogo completo de productos, buscar por nombre o categoría, y enviar pedidos personalizados que se guardan en una base de datos y notifican automáticamente por email al cliente y al administrador. Incluye generación de catálogos PDF, optimizaciones avanzadas de rendimiento y una experiencia fluida en múltiples dispositivos.'
+title: 'SantyTec: Sistema de Pedidos y Cuentas'
+client: 'SantyTec'
+duration: 'Agosto 2024 - Presente'
+subtitle: 'Solución E-commerce con Seguimiento y Automatización de Clientes.'
+description: 'Solución E-commerce completa: Desde el diseño inicial hasta la implementación de funciones avanzadas como notificaciones automáticas por email para clientes y administrador.'
+summary: 'Experiencia de Compra Superior: Este e-commerce permite a los clientes explorar el catálogo y enviar pedidos fácilmente. La plataforma ahora ofrece la opción de crear una cuenta para sincronizar el carrito entre sesiones, guardar el historial de pedidos y facilitar compras futuras con auto-relleno. Todo esto optimiza la conversión y la gestión del negocio. Incluye notificaciones automáticas y catálogos PDF.'
 keyTech: ['Next.js', 'Prisma', 'Tailwind CSS', 'shadcn/ui', 'Zustand', 'Zod']
 mainImg: '/images/santytec/main.webp'
 demo: 'https://santytec.com.ar'
@@ -32,8 +34,11 @@ stack:
   - Google reCAPTCHA v3
   - Vercel
 features:
+  - Sistema de Cuentas y Autenticación mediante OAuth y credenciales (usando Auth.js).
+  - Carrito persistente sincronizado entre sesiones y dispositivos al iniciar sesión.
+  - 'Historial de Pedidos: Los clientes pueden consultar su historial y el estado actual de su pedido.'
+  - 'Checkout Optimizado: Auto-relleno de datos (correo y teléfono) en el checkout para usuarios registrados.'
   - Búsqueda por nombre y filtrado por categorías
-  - Carrito sincronizado entre pestañas con Zustand
   - Pedidos con notificación automática por email
   - Generación de catálogo PDF completo
   - Validación de formularios con Zod (cliente y servidor)
@@ -47,7 +52,9 @@ impact:
     subtitle: 'Permite a los usuarios realizar pedidos fácilmente'
   - title: 'Automatización eficiente'
     subtitle: 'Elimina tareas manuales con pedidos automáticos'
-role: 'Diseñé, desarrollé y desplegué completamente el e-commerce. Me encargué de la comunicación con el cliente, la planificación, implementación técnica, y ajustes posteriores.'
+role: 'Solo Full Stack Engineer'
+scope: 'Diseñé, desarrollé y desplegué completamente el e-commerce. Me encargué de la comunicación con el cliente, la planificación, implementación técnica, y ajustes posteriores.'
+
 challenges:
   - Integrar Server Components, Streaming y Partial Prerendering de forma efectiva
   - Sincronizar el carrito entre múltiples pestañas con Zustand

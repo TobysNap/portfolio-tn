@@ -1,0 +1,31 @@
+---
+import { Gallery } from '@/components/gallery';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { imgs } = project.data;
+---
+
+<section class="py-24 px-4 sm:px-6 lg:px-8 relative">
+	<div class="absolute inset-0 overflow-hidden pointer-events-none">
+		<div
+			class="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]"
+		>
+		</div>
+		<div
+			class="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px]"
+		>
+		</div>
+	</div>
+
+	<div class="relative max-w-6xl mx-auto">
+		<h2 class="text-5xl md:text-6xl font-bold text-text uppercase mb-16 text-center ">Galería del Proyecto</h2>
+		<div class="max-w-5xl mx-10">
+			<Gallery imgs={imgs} client:load />
+		</div>
+	</div>
+</section>

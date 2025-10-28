@@ -20,6 +20,9 @@ const projects = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
+			duration: z.string(),
+			scope: z.string(),
+			client: z.string(),
 			subtitle: z.string(),
 			description: z.string(),
 			summary: z.string(),
